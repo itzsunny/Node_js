@@ -1,0 +1,6 @@
+■ Anything involving the filesystem—Like reading and writing files from your hard drive
+■ Anything involving a network—Like receiving requests, sending responses, or sending your own requests over the internet
+Conceptually, that’s about it.
+In code, these asynchronous things are handled by callbacks. You’ve probably
+done something like this if you’ve ever done an AJAX request on a web page; you send a request and pass a callback. When the browser has finished your request, it’ll call your callback. Node works the same way.
+Let’s say you’re reading a file called myfile.txt from disk. When you’ve finished reading the whole file, you want to print the number of times the letter X appears in the file. The next listing shows how that might work.
