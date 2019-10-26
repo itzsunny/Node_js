@@ -3,14 +3,15 @@ const app = express();
 const url = require("url");
 const path = require("path");
 const logger = require("morgan");
-const cookieParser = require("cookie-parser");
+const cookieParser = require("cookie-parse");
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema();
 const port = process.env.PORT || 3000;
 
 // built in middlewares
 
-app.use(express.json());
 app.use(logger("dev"));
-app.use(cookieParser());
+app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 // app.use(express.static("public"));
 app.use(express.static(path.join(__dirname, "public")));
@@ -39,8 +40,8 @@ app.post("/add", (req, res) => {
 });
 
 app.get("/static", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"),err => {
-    if(err) res.next(err);
+  res.sendFile(path.join(__dirname, "index.html"), err => {
+    if (err) res.next(err);
   });
 });
 
@@ -53,7 +54,6 @@ app.use((req, res, next) => {
 app.use((err, req, res, next) => {
   res.status(500).send(`${err.msg}`);
 });
-
 
 //listener
 app.listen(port, "localhost", () => {
