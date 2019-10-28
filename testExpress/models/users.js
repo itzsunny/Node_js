@@ -1,7 +1,7 @@
 // creating Schema
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-// let objectId = mongoose.Schema.Types.objectId;
+let objectId = Schema.Types.ObjectId;
 const mySchema = new Schema(
   {
     name: {
@@ -12,19 +12,20 @@ const mySchema = new Schema(
     email: {
       type: String,
       match: /@/,
-    //   minlength: 5,
+      minlength: 5,
       require: true,
       unique: true,
       lowercase: true
     },
     age: {
       type: Number,
-    //   min: 18,
-    //   max: 60
+      min: 18,
+      max: 60
     },
-    // password: {
-    //   min: 5
-    // },
+    password: {
+      type:String,
+      min: 5
+    },
     createdAt: {
       type: Date,
       default: Date.now()
@@ -34,14 +35,14 @@ const mySchema = new Schema(
   { timestamps: true }
 );
 
-// const car = new Schema({
-//   address: {
-//     village: String,
-//     city: String,
-//     state: String,
-//     pin: Number,
-//     user: objectId
-//   }
-// });
+const car = new Schema({
+  address: {
+    village: String,
+    city: String,
+    state: String,
+    pin: Number,
+    user: objectId
+  }
+});
 var userInfo = mongoose.model('userInfo',mySchema);
 module.exports = userInfo;

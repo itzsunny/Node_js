@@ -139,24 +139,23 @@
 //   console.log("server started on", port);
 // });
 
-
-
-
-
-// mongoose with routing 
+// mongoose with routing
 
 const express = require("express");
-const app = express();
 const logger = require("morgan");
 const mongoose = require("mongoose");
-const usersRoutes = require("./routes/users");
+const path = require("path");
 
+// routes
+
+const indexRoute = require("./routes/index");
+const usersRoutes = require("./routes/users");
 
 // connecting with Mongoose
 
 mongoose.connect(
   "mongodb://localhost/testexpress",
-  { useNewUrlParser: true },
+  { useNewUrlParser: true, useUnifiedTopology: true },
   err => {
     err ? console.log(err) : console.log("you are connected");
     // OR
@@ -164,19 +163,24 @@ mongoose.connect(
   }
 );
 
+// initializing express
+
+const app = express();
+
+// setting up view engine
+
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+
 // middlewares
 
 app.use(logger("dev"));
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 // routes
-app.use('/users',usersRoutes);
-
-app.get("/", (req, res) => {
-  console.log("Welcome to Express");
-  res.send("Welcome to node");
-});
-
+app.use("/", indexRoute);
+app.use("/users", usersRoutes);
 
 // error 404
 
@@ -187,7 +191,7 @@ app.use((req, res) => {
 // error 500
 
 app.use((err, req, res, next) => {
-  res.status(500).send(err);
+  res.status(500).json(err);
 });
 
 app.listen(3000, "localhost", () => {

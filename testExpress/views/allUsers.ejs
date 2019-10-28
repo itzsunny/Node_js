@@ -1,0 +1,13 @@
+<% include partials/header %>
+
+<h3>List of Users</h2>
+<h2><% allUsers.length %></h4>
+<% allUsers.forEach (user => { %>
+    
+<a href="/users/<% users.id>">
+    <h4><% users.name %></h4>
+</a>
+
+<% }) %>
+
+<% include partials/footer %>
