@@ -1,14 +1,20 @@
 <% include partials/header %>
 
 <h2> Add user</h2>
-
+<div class="form_container">
 <form action="/users" method="post">
+    <p class="input_text">Name</p>
     <input type="text" name="name" placeholder="name">
+    <p  class="input_text">Email</p>
     <input type="text" name="email" placeholder="email">
+    <p  class="input_text">Age</p>
     <input type="text" name="age" placeholder="age">
+    <p  class="input_text">Password</p>
     <input type="password" name="password" placeholder="password">
+    <p  class="input_text">Favourites</p>
     <input type="text" name="favourites" placeholder="favourites">
     <input type="submit" value="Add User">
     </form>
+    </div>
 
 <% include partials/footer %>

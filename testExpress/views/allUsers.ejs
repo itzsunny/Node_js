@@ -1,13 +1,13 @@
 <% include partials/header %>
 
-<h3>List of Users</h2>
-    <h2>users: <%= users.length  %></h4>
+<h3 class="list_of_users">List of Users</h2>
+    <h4>users: <%= users.length  %></h4>
             <% users.forEach(user => { %>
                 <a href=/users/<%= user.id %> >
                     <h4><%= user.name %></h4>
                     </a>
     <% }) %>
-    <a href=/users/newuser>Add User</a>
+    <button class="btn"><a href=/users/newuser>Add User</a></button>
 
 
 
