@@ -179,6 +179,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // routes
+
 app.use("/", indexRoute);
 app.use("/users", usersRoutes);
 

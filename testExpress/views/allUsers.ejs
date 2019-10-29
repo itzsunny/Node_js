@@ -1,13 +1,15 @@
 <% include partials/header %>
 
 <h3>List of Users</h2>
-<h2><% allUsers.length %></h4>
-<% allUsers.forEach (user => { %>
-    
-<a href="/users/<% users.id>">
-    <h4><% users.name %></h4>
-</a>
+    <h2>users: <%= users.length  %></h4>
+            <% users.forEach(user => { %>
+                <a href=/users/<%= user.id %> >
+                    <h4><%= user.name %></h4>
+                    </a>
+    <% }) %>
+    <a href=/users/newuser>Add User</a>
 
-<% }) %>
+
+
 
 <% include partials/footer %>

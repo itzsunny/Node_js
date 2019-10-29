@@ -1,0 +1,10 @@
+<h2> User Information</h2>
+
+<h3>Name: <%= userInfo.name %></h3>
+<h4>Email: <%= userInfo.email %></h4>
+<h4>Age: <%= userInfo.age %></h4>
+<h4>Password: <%= userInfo.password %></h4>
+<h4>Favourites: <%= userInfo.favourites %></h4>
+
+<button><a href="/users/<%= userInfo.id %>/updateUserInfo">Update Info</a></button>
+<button><a href="/users/<%= userInfo.id %>/deleteUser">Delete User</a></button>

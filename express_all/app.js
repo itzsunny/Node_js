@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000;
 // importing routes
 
 const indexRouter = require("./routers/index");
-const mainRouter = require("./routers/avatars");
+const mainRouter = require("./routers/articles");
 
 // connecting to mongodb
 mongoose.connect(
@@ -35,7 +35,7 @@ app.use(express.json());
 // handle routes
 
 app.use("/", indexRouter);
-app.use("/avatars", mainRouter);
+app.use("/articles", mainRouter);
 
 // error handlers
 
