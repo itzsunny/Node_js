@@ -1,14 +1,15 @@
 <% include partials/header %>
 
-<h3 class="list_of_users">List of Users</h2>
-    <h4>users: <%= users.length  %></h4>
+<div class="wrapper">
+<h3 class="users_all">LIST OF USERS</h2>
+    <h4 class="users_all">users: <%= users.length  %></h4>
             <% users.forEach(user => { %>
                 <a href=/users/<%= user.id %> >
-                    <h4><%= user.name %></h4>
+                    <h4 class="users_all user_name"><%= user.name %></h4>
                     </a>
     <% }) %>
-    <button class="btn"><a href=/users/newuser>Add User</a></button>
-
+    <button class="btn"><a href=/users/newuser>ADD USER</a></button>
+                </div>
 
 
 

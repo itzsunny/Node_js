@@ -1,10 +1,16 @@
-<h2> User Information</h2>
+<% include partials/header %>
+<div class="wrapper_bg">
+<div class="wrapper wrapper2">
+<h2 class="user_info"> User Information</h2>
 
-<h3>Name: <%= userInfo.name %></h3>
-<h4>Email: <%= userInfo.email %></h4>
-<h4>Age: <%= userInfo.age %></h4>
-<h4>Password: <%= userInfo.password %></h4>
-<h4>Favourites: <%= userInfo.favourites %></h4>
+<h3 class="user_info">Name: <%= userInfo.name %></h3>
+<h4 class="user_info">Email: <%= userInfo.email %></h4>
+<h4 class="user_info">Age: <%= userInfo.age %></h4>
+<h4 class="user_info">Password: <%= userInfo.password %></h4>
+<h4 class="user_info">Favourites: <%= userInfo.favourites %></h4>
 
-<button><a href="/users/<%= userInfo.id %>/updateUserInfo">Update Info</a></button>
-<button><a href="/users/<%= userInfo.id %>/deleteUser">Delete User</a></button>
+<button class="btn btn2"><a class="a" href="/users/<%= userInfo.id %>/updateUserInfo">Update Info</a></button>
+<button class="btn btn2"><a class="a" href="/users/<%= userInfo.id %>/deleteUser">Delete User</a></button>
+</div>
+</div>
+<% include partials/footer %>

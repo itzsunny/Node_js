@@ -1,7 +1,8 @@
 <% include partials/header %>
 
-<h2> Add user</h2>
+<div class="wrapper_bg">
 <div class="form_container">
+        <h2 class="add_user"> Add user</h2>
 <form action="/users" method="post">
     <p class="input_text">Name</p>
     <input type="text" name="name" placeholder="name">
@@ -13,8 +14,9 @@
     <input type="password" name="password" placeholder="password">
     <p  class="input_text">Favourites</p>
     <input type="text" name="favourites" placeholder="favourites">
-    <input type="submit" value="Add User">
+    <input type="submit" value="ADD USER" class="submit">
     </form>
+    </div>
     </div>
 
 <% include partials/footer %>
