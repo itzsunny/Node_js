@@ -143,6 +143,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  padding: 3rem;
 }
 
 /* header */
@@ -153,7 +154,7 @@ header {
   /* background-image: url("/img/header.png");
       background-position: center;
       background-size: cover; */
-  padding: 3rem;
+  padding: 2rem;
 }
 
 .home {
@@ -169,7 +170,7 @@ header {
 /* wrapper */
 .wrapper {
   width: 80%;
-  margin: 1rem auto;
+  margin: 0 auto;
   border-radius: 1rem;
   padding: 1rem;
   background-color: #22262b;
@@ -184,6 +185,9 @@ header {
 }
 .wrapper_bg {
   height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .user_info {
   padding: 1rem;

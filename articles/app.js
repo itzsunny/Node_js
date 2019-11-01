@@ -1,63 +1,41 @@
-const express = require("express");
-const logger = require("morgan");
-const mongoose = require("mongoose");
-const path = require("path");
-const port = process.env.PORT || 4000;
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
 
-// importing routers
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
 
-const indexRouter = require("./routes/index");
-const articleRouter = require("./routes/articles");
+var app = express();
 
-// connecting to database
-mongoose.connect(
-  "mongodb://localhost/articles",
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  err => {
-    err ? console.log(err) : console.log("Connected");
-  }
-);
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
-// initializing express in app
-const app = express();
-
-// logger
-
-app.use(logger("dev"));
-
-// json parser
-
+app.use(logger('dev'));
 app.use(express.json());
-
-// form parser
-
 app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
-// static middleware
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
 
-app.use(express.static(path.join(__dirname, "public")));
-// routers
-
-app.use("/", indexRouter);
-app.use("/articles", articleRouter);
-
-// setting up virtual engine
-app.set("virtual engine", "ejs");
-app.set("views", path.join(__dirname, "views"));
-
-// error handlers
-// 404
-
-app.use((req, res) => {
-  res.status(400).send("Page not found");
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  next(createError(404));
 });
 
-// 500
-app.use((err, req, res, next) => {
-  res.status(500).json(err);
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
 });
 
-// strarting server
-app.listen(port, "localhost", () => {
-  console.log(`server started on port ${port}`);
-});
+module.exports = app;

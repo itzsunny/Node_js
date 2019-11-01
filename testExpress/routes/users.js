@@ -1,8 +1,11 @@
 const express = require("express");
-const userInfo = require("../models/users");
+const userInfo = require("../models/userinfo");
 const router = express.Router();
 
 // router
+
+// register new user
+
 
 
 // add userform

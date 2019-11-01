@@ -17,7 +17,7 @@ module.exports = {
     pi,sum,multiply
 }
 module.exports = {
-     pi : 3.14;
+     pi : 3.14,
      sum : (a,b) =>{
     return a+b;
 }

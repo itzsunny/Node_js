@@ -1,0 +1,23 @@
+<% include partials/header %>
+
+<div class="wrapper_bg">
+
+  <div class="form_container">
+    <h2 class="add_user">Register</h2>
+    <form action="/register" method="post">
+      <p class="input_text">Name</p>
+      <input type="text" name="name" placeholder="User Name" />
+      <p class="input_text">Email</p>
+      <input type="text" name="email" placeholder="Email ID" />
+      <p class="input_text">Password</p>
+      <input type="password" name="password" placeholder="Enter a password" />
+      <p class="input_text">Gender</p>
+      <input type="string" name="gender" placeholder="male female others" />
+      <p class="input_text">Phone Number</p>
+      <input type="number" name="phone" placeholder="Phone Number" />
+      <input type="submit" value="Register"  class="submit"/>
+    </form>
+  </div>
+</div>
+
+<% include partials/footer %>
