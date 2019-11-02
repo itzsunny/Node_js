@@ -145,6 +145,10 @@ const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 const path = require("path");
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+
 
 // routes
 
@@ -178,6 +182,18 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname,"public")));
+
+//cookieParser
+app.use(cookieParser());
+
+//session middleware
+app.use(session({
+  secret: "thishisasecret",
+  resave: false,
+  saveUninitialized: false,
+  store: new MongoStore({ mongooseConnection: mongoose.connection })
+}));
+
 
 // routes
 

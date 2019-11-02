@@ -6,26 +6,25 @@ const router = express.Router();
 
 // register new user
 
-
-
 // add userform
 
-router.get("/newuser",(req,res,next)=> {
+router.get("/newuser", (req, res, next) => {
   res.render("newUser");
-})
+});
 
 //add user
 
-router.post("/",(req,res,next)=> {
-  userInfo.create(req.body,(err,newUser) => {
-    if(err)return next(err);
-    res.redirect('/users');
-  })
-})
+router.post("/", (req, res, next) => {
+  userInfo.create(req.body, (err, newUser) => {
+    if (err) return next(err);
+    res.redirect("/users");
+  });
+});
 
 // get All users
+
 router.get("/", (req, res, next) => {
-  userInfo.find({},(err, users) => {
+  userInfo.find({}, (err, users) => {
     if (err) return next(err);
     res.render("allUsers", { users });
   });
@@ -37,8 +36,6 @@ router.get("/", (req, res, next) => {
 //     res.json({ created });
 //   });
 // });
-
-
 
 // router.get("/:id", (req, res, next) => {
 //   let id = req.params.id;
@@ -53,7 +50,7 @@ router.get("/:id", (req, res, next) => {
   let id = req.params.id;
   userInfo.findById(id, (err, userInfo) => {
     if (err) return next(err);
-    res.render("userInfo",{ userInfo})
+    res.render("userInfo", { userInfo });
   });
 });
 
@@ -71,7 +68,7 @@ router.get("/:id/updateUserInfo", (req, res, next) => {
   let id = req.params.id;
   userInfo.findById(id, (err, user) => {
     if (err) return next(err);
-    res.render('updateUserInfo',{ user });
+    res.render("updateUserInfo", { user });
   });
 });
 
@@ -83,7 +80,6 @@ router.post("/:id", (req, res, next) => {
     res.redirect(`/users/${id}`);
   });
 });
-
 
 // router.delete("/:id", (req, res, next) => {
 //   userInfo.findByIdAndRemove(id, (err, deleted) => {
@@ -98,10 +94,8 @@ router.get("/:id/deleteUser", (req, res, next) => {
   let id = req.params.id;
   userInfo.findByIdAndRemove(id, (err, deleted) => {
     if (err) return next(err);
-    res.redirect('/users');
+    res.redirect("/users");
   });
 });
-
-
 
 module.exports = router;
