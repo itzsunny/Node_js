@@ -1,0 +1,55 @@
+<% include partials/header %>
+
+
+<div class="wrapper">
+  <form class="form_newuser" action="/articles/<%= articles.id %>" method="post">
+  
+    <input
+      class="input_value"
+      type="text"
+      name="article_title"
+      placeholder="Heading"
+      value="<%= articles.article_title %>"
+    />
+
+    <textarea
+      class="input_value input_articleintro"
+      name="article_intro"
+      placeholder="About this article"
+      rows="4"
+      cols="50"
+    ><%= articles.article_intro %></textarea>
+
+    <input
+      class="input_value"
+      type="text"
+      name="article_subtitle"
+      placeholder="Title"
+      value="<%= articles.article_subtitle %>"
+    />
+    <input type="checkbox" id="code_snippet" class="checkbox_snippets">
+    <label for="code_snippet"><span class="label_snippet">〈/〉</span> <span class="add_snippet">Click to add snippets</span></label>
+    <div class="input_snippets_container">
+    <textarea
+      class="input_value input_snippets"
+      id="snippet"
+      name="article_snippets"
+      placeholder="#code here"
+      rows="5"
+      cols="50"
+    ><%= articles.article_snippets %></textarea>
+  </div>
+
+    <textarea
+      class="input_value input_articledescription"
+      name="article_description"
+      placeholder="Description"
+      rows="10"
+      cols="50"
+    ><%= articles.article_description %></textarea>
+    <input type="file" onchange="readURL(this)" />
+    <input type="submit" value="Update" class="submit_newuser btn trans_btn" />
+  </form>
+</div>
+
+<% include partials/footer %>

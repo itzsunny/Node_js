@@ -1,0 +1,53 @@
+<% include partials/header %>
+<div class="wrapper">
+  <form class="form_newuser" action="/articles" method="post">
+    <input
+      class="input_value"
+      type="text"
+      name="article_title"
+      placeholder="Heading"
+    />
+
+    <textarea
+      class="input_value input_articleintro"
+      name="article_intro"
+      placeholder="About this article"
+      rows="4"
+      cols="50"
+    ></textarea>
+
+    <input
+      class="input_value"
+      type="text"
+      name="article_subtitle"
+      placeholder="Subtitle"
+    />
+    <input type="checkbox" id="code_snippet" class="checkbox_snippets" />
+    <label for="code_snippet"
+      ><span class="label_snippet">〈/〉</span>
+      <span class="add_snippet">Click to add single snippet</span></label
+    >
+    <div class="input_snippets_container">
+      <textarea
+        class="input_value input_snippets"
+        id="snippet"
+        name="article_snippets"
+        placeholder="#code here"
+        rows="5"
+        cols="50"
+      ></textarea>
+    </div>
+
+    <textarea
+      class="input_value input_articledescription"
+      name="article_description"
+      placeholder="Description"
+      rows="10"
+      cols="50"
+    ></textarea>
+    <input type="file" onchange="readURL(this)" />
+    <input type="submit" value="Create" class="submit_newuser btn trans_btn" />
+  </form>
+</div>
+
+<% include partials/footer %>

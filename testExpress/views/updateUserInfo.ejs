@@ -1,24 +1,44 @@
 <% include partials/header %>
 <header>
-    <a href="/users"><h4 class="home">HOME</h4></a>
+  <a href="/users"><h4 class="home">HOME</h4></a>
 </header>
 <div class="wrapper_bg">
-<div class="form_container">
-        <h2 class="add_user"> Update user</h2>
-<form action="/users/<%= user.id %>" method="post">
-    <p class="input_text">Name</p>
-    <input type="text" name="name" value="<%= user.name %>" placeholder="name">
-    <p class="input_text">Email</p>
-    <input type="text" name="email" value="<%= user.email %>" placeholder="email">
-    <p class="input_text">Age</p>
-    <input type="text" name="age" value="<%= user.age %>" placeholder="age">
-    <p class="input_text">Password</p>
-    <input type="password" name="password" value="<%= user.password %>" placeholder="password">
-    <p class="input_text">Favourites</p>
-    <input type="text" name="favourites" value="<%= user.favourites %>" placeholder="favourites">
-    <input type="submit" value="Update User" class="submit">
-</form>
-</div>
+  <div class="form_container">
+    <h2 class="add_user">Update user</h2>
+    <form action="/users/<%= user.id %>" method="post">
+      <p class="input_text">Name</p>
+      <input
+        type="text"
+        name="name"
+        value="<%= user.name %>"
+        placeholder="name"
+      />
+      <p class="input_text">Email</p>
+      <input
+        type="text"
+        name="email"
+        value="<%= user.email %>"
+        placeholder="email"
+      />
+      <p class="input_text">Age</p>
+      <input type="text" name="age" value="<%= user.age %>" placeholder="age" />
+      <p class="input_text">Password</p>
+      <input
+        type="password"
+        name="password"
+        value="<%= user.password %>"
+        placeholder="password"
+      />
+      <p class="input_text">Favourites</p>
+      <input
+        type="text"
+        name="favourites"
+        value="<%= user.favourites %>"
+        placeholder="favourites"
+      />
+      <input type="submit" value="Update User" class="submit" />
+    </form>
+  </div>
 </div>
 
 <% include partials/footer %>
