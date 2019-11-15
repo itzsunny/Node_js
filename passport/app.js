@@ -28,8 +28,6 @@ mongoose.connect(
   }
 );
 
-
-
 // initializing
 
 var app = express();

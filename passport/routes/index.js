@@ -3,11 +3,13 @@ var router = express.Router();
 var passport = require("passport");
 
 /* GET home page. */
+
 router.get("/", function(req, res, next) {
-  console.log(req.session);
+  
   res.render("index", { title: "Express" });
 });
 router.get("/protected", (req, res) => {
+  console.log(req.isAuthenticated())
   if (req.isAuthenticated) {
     res.json({ success: true });
   } else {
